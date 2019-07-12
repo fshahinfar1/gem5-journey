@@ -74,6 +74,11 @@ AttributeError: object 'MySystem' has no attribute 'mmubus'
   (C++ object is not yet constructed, so wrapped C++ methods are unavailable.)
 ```
 
+9. The issue was solved there was typo in the toturials code. (I opened an issue for the
+toturials repo)
+
+10. 
+
 
 **Kernel Config:**
 
