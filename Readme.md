@@ -68,5 +68,5 @@ for creating a system configuration.
 
 **Kernel Config:**
 
-1. It looks like gem5 wants retroplane enabled
+1. It looks like gem5 wants Retpoline enabled
 
