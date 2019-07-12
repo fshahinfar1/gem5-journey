@@ -38,8 +38,8 @@ telnet 127.0.0.1 <port>
 
 ### Run a custom kernel and image [Not yet achieved]
 
-This steps has been taken for running a full system simulation but
-I havent yet got there.
+These steps has been taken for running a full system simulation but
+I haven't yet got there.
 
 1. Read the blog post [here](http://www.lowepower.com/jason/setting-up-gem5-full-system.html).
 
@@ -64,6 +64,7 @@ make -j9
 
 7. After some time, just after running init process of kerenl, the simulation ends.
 There is an error with TLB I guess. It might be because of system configuration.
+Check error logs at [here](./tlb_assertion_error).
 
 8. Read post [here](http://pages.cs.wisc.edu/~markhill/cs757/Spring2016/learning_gem5/part3/fs_config.html)
 for creating a system configuration.

@@ -1,0 +1,67 @@
+$ ./build/X86/gem5.opt ./configs/example/fs.py --disk-image=test.img --kernel=x86_64-vmlinux-4.8.13 
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Jul  7 2019 18:25:06
+gem5 started Jul 12 2019 20:06:36
+gem5 executing on hawk-pc, pid 3969
+command line: ./build/X86/gem5.opt ./configs/example/fs.py --disk-image=test.img --kernel=x86_64-vmlinux-4.8.13
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+info: kernel located at: /home/hawk/Workplace/Github/gem5-system/binaries/x86_64-vmlinux-4.8.13
+system.pc.com_1.device: Listening for connections on port 3456
+      0: rtc: Real-time clock set to Sun Jan  1 00:00:00 2012
+0: system.remote_gdb: listening for remote gdb on port 7000
+warn: Reading current count from inactive timer.
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: instruction 'fninit' unimplemented
+warn: Don't know what interrupt to clear for console.
+23775269500: system.pc.com_1.device: attach terminal 0
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: Tried to clear PCI interrupt 14
+warn: Write to unknown i8042 (keyboard controller) command port.
+gem5.opt: build/X86/arch/x86/tlb.cc:359: Fault X86ISA::TLB::translate(const RequestPtr&, ThreadContext*, BaseTLB::Translation*, BaseTLB::Mode, bool&, bool): Assertion `entry' failed.
+Program aborted at tick 1817256868500
+--- BEGIN LIBC BACKTRACE ---
+./build/X86/gem5.opt(_Z15print_backtracev+0x2c)[0x563ec2bc421c]
+./build/X86/gem5.opt(_Z12abortHandleri+0x4a)[0x563ec2bd3f6a]
+/usr/lib/libpthread.so.0(+0x124d0)[0x7f6e35be74d0]
+/usr/lib/libc.so.6(gsignal+0x10f)[0x7f6e351e882f]
+/usr/lib/libc.so.6(abort+0x125)[0x7f6e351d3672]
+/usr/lib/libc.so.6(+0x22548)[0x7f6e351d3548]
+/usr/lib/libc.so.6(+0x2fdb6)[0x7f6e351e0db6]
+./build/X86/gem5.opt(_ZN6X86ISA3TLB9translateERKSt10shared_ptrI7RequestEP13ThreadContextPN7BaseTLB11TranslationENS8_4ModeERbb+0x110e)[0x563ec2e32f0e]
+./build/X86/gem5.opt(_ZN6X86ISA3TLB15translateAtomicERKSt10shared_ptrI7RequestEP13ThreadContextN7BaseTLB4ModeE+0x2b)[0x563ec2e32fbb]
+./build/X86/gem5.opt(_ZN15AtomicSimpleCPU7readMemEmPhj5FlagsImERKSt6vectorIbSaIbEE+0x16e)[0x563ec342ecae]
+./build/X86/gem5.opt(_ZN17SimpleExecContext7readMemEmPhj5FlagsImERKSt6vectorIbSaIbEE+0x29)[0x563ec343e3d9]
+./build/X86/gem5.opt(+0x115a673)[0x563ec3225673]
+./build/X86/gem5.opt(_ZNK10X86ISAInst5LdBig7executeEP11ExecContextPN5Trace10InstRecordE+0x119)[0x563ec324e069]
+./build/X86/gem5.opt(_ZN15AtomicSimpleCPU4tickEv+0x4dc)[0x563ec342d80c]
+./build/X86/gem5.opt(_ZN10EventQueue10serviceOneEv+0x8c)[0x563ec2bca7bc]
+./build/X86/gem5.opt(_Z9doSimLoopP10EventQueue+0x108)[0x563ec2be1f98]
+./build/X86/gem5.opt(_Z8simulatem+0xa5a)[0x563ec2be2cea]
+./build/X86/gem5.opt(+0x1355680)[0x563ec3420680]
+./build/X86/gem5.opt(+0x7b188a)[0x563ec287c88a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x72bb)[0x7f6e35cbee8b]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x5ffe)[0x7f6e35cbdbce]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x5ffe)[0x7f6e35cbdbce]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x5ffe)[0x7f6e35cbdbce]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCode+0x1a)[0x7f6e35cb7bca]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x5472)[0x7f6e35cbd042]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalFrameEx+0x5ffe)[0x7f6e35cbdbce]
+/usr/lib/libpython2.7.so.1.0(PyEval_EvalCodeEx+0x2ca)[0x7f6e35cb6b3a]
+--- END LIBC BACKTRACE ---
+Aborted (core dumped)
+
