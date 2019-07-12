@@ -36,7 +36,10 @@ Run gem5 simulator:
 telnet 127.0.0.1 <port>
 ```
 
-### Run a custom kernel and image
+### Run a custom kernel and image [Not yet achieved]
+
+This steps has been taken for running a full system simulation but
+I havent yet got there.
 
 1. Read the blog post [here](http://www.lowepower.com/jason/setting-up-gem5-full-system.html).
 
