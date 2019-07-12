@@ -1,0 +1,31 @@
+$ ./build/X86/gem5.opt ./configs/my_configs/run.py 
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Jul  7 2019 18:25:06
+gem5 started Jul 12 2019 23:33:52
+gem5 executing on hawk-pc, pid 7637
+command line: ./build/X86/gem5.opt ./configs/my_configs/run.py
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (4096 Mbytes)
+info: kernel located at: /home/hawk/Workplace/Github/gem5-system/binaries/x86_64-vmlinux-4.8.13
+system.pc.com_1.device: Listening for connections on port 3456
+      0: rtc: Real-time clock set to Sun Jan  1 00:00:00 2012
+0: system.remote_gdb: listening for remote gdb on port 7000
+warn: Reading current count from inactive timer.
+Running the simulation
+info: Entering event queue @ 0.  Starting simulation...
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: instruction 'fninit' unimplemented
+warn: Don't know what interrupt to clear for console.
+5097912984: system.pc.com_1.device: attach terminal 0
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: x86 cpuid family 0x0000: unimplemented function 6
+warn: Tried to clear PCI interrupt 14
+warn: Write to unknown i8042 (keyboard controller) command port.
+^CExiting @ tick 1728262185822 because user interrupt received
+

@@ -59,7 +59,7 @@ make -j9
 
 6. Run simulation.
 ```
-./build/X86/gem.opt ./configs/examples/fs.py --disk-image=test.img --kernel=x86_64-vmlinux-4.8.13
+./build/X86/gem5.opt ./configs/examples/fs.py --disk-image=test.img --kernel=x86_64-vmlinux-4.8.13
 ```
 
 7. After some time, just after running init process of kerenl, the simulation ends.
@@ -74,10 +74,20 @@ AttributeError: object 'MySystem' has no attribute 'mmubus'
   (C++ object is not yet constructed, so wrapped C++ methods are unavailable.)
 ```
 
-9. The issue was solved there was typo in the toturials code. (I opened an issue for the
-toturials repo)
+9. The issue was solved there was some typing errors in the toturials code.
+(I opened an issue for them).
+System config is available [here](./my_config).
+```
+./build/X86/gem5.opt ./configs/my_config/run.py
+```
 
-10. 
+10. Follow this (link)[http://www.lowepower.com/jason/setting-up-gem5-full-system.html]
+to create an image file. Ubuntu Server version 18.04.2 was used.
+I have Tried to run simulation with ubuntu image and kernel 4.8.13 on my_config system
+but it was stoped by kernel panic.
+Logs for the error is available [here](./kernel_panic).
+
+11. Check [this](https://askubuntu.com/questions/41930/kernel-panic-not-syncing-vfs-unable-to-mount-root-fs-on-unknown-block0-0) post for solving the issue.
 
 
 **Kernel Config:**
