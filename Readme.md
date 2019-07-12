@@ -81,7 +81,7 @@ System config is available [here](./my_config).
 ./build/X86/gem5.opt ./configs/my_config/run.py
 ```
 
-10. Follow this (link)[http://www.lowepower.com/jason/setting-up-gem5-full-system.html]
+10. Follow this [link](http://www.lowepower.com/jason/setting-up-gem5-full-system.html)
 to create an image file. Ubuntu Server version 18.04.2 was used.
 I have Tried to run simulation with ubuntu image and kernel 4.8.13 on my_config system
 but it was stoped by kernel panic.
