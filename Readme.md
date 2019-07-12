@@ -66,8 +66,13 @@ make -j9
 There is an error with TLB I guess. It might be because of system configuration.
 Check error logs at [here](./tlb_assertion_error).
 
-8. Read post [here](http://pages.cs.wisc.edu/~markhill/cs757/Spring2016/learning_gem5/part3/fs_config.html)
+8. Read post [here](http://learning.gem5.org/book/part5/fs_config.html)
 for creating a system configuration.
+After following the tutorial I get the following error:
+```
+AttributeError: object 'MySystem' has no attribute 'mmubus'
+  (C++ object is not yet constructed, so wrapped C++ methods are unavailable.)
+```
 
 
 **Kernel Config:**
