@@ -2,7 +2,7 @@
 
 ## Building gem5
 
-1. Follow the guid in the [website](http://gem5.org/Introduction).
+1. Follow the guide in the [website](http://gem5.org/Introduction).
 ```
 scons build/ARM/gem5.opt -j4
 ```
@@ -30,6 +30,7 @@ Run gem5 simulator:
 ```
 ./build/X86/gem.opt ./configs/examples/fs.py --disk-image=x86Linux --kernel=x86_64-vmlinux-2.6.22.9
 ```
+>Also please note that with correct kernel config it is possible to use the base old image with the new kernel.
 
 5. Then connect to the simulator using telnet.
 ```
