@@ -12,7 +12,7 @@ At line 390, append to the list '-Wno-error=undef'.
 
 ## Running a full system simulation
 
-### Run the default images and kernel
+### Run the default image and kernel
 
 1. Download the provided kernel and image from [link](http://gem5.org/Download).
 
@@ -85,9 +85,12 @@ System config is available [here](./my_config).
 to create an image file. Ubuntu Server version 18.04.2 was used.
 I have Tried to run simulation with ubuntu image and kernel 4.8.13 on my_config system
 but it was stoped by kernel panic.
-Logs for the error is available [here](./kernel_panic).
+Logs for the error is available [here](./kernel-panic/).
 
 11. Check [this](https://askubuntu.com/questions/41930/kernel-panic-not-syncing-vfs-unable-to-mount-root-fs-on-unknown-block0-0) post for solving the issue.
+And this [post](https://wiki.gentoo.org/wiki/Knowledge_Base:Unable_to_mount_root_fs).
+
+12. Change `root=/dev/hda1` to `root=/dev/hda2`. A new kernel panic message. check [here](./kernel-panic-2)
 
 
 **Kernel Config:**
