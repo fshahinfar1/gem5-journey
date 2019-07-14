@@ -25,10 +25,10 @@ class MySystem(LinuxX86System):
         self.system_port = self.membus.slave
         x86.init_fs(self, self.membus)
         
-        self.kernel = '/home/hawk/Workplace/Github/gem5-system/binaries/x86_64-vmlinux-5.2'
+        self.kernel = '/home/hawk/Workplace/Github/gem5-system/binaries/x86_64-vmlinux-4.8.13'
 
         boot_options = ['earlyprintk=ttyS0', 'console=ttyS0', 'lpj=7999923',
-                        'root=/dev/hda1']
+                        'root=/dev/hda2']
         self.boot_osflags = ' '.join(boot_options)
         
         self.setDiskImage('/home/hawk/Workplace/Github/gem5-system/disks/x86root.img')
