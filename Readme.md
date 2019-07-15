@@ -86,14 +86,70 @@ to create an image file. Ubuntu Server version 18.04.2 was used.
 I have Tried to run simulation with ubuntu image and kernel 4.8.13 on my_config system
 but it was stoped by kernel panic.
 Logs for the error is available [here](./kernel-panic/).
+(Check create disk image section)
 
 11. Check [this](https://askubuntu.com/questions/41930/kernel-panic-not-syncing-vfs-unable-to-mount-root-fs-on-unknown-block0-0) post for solving the issue.
 And this [post](https://wiki.gentoo.org/wiki/Knowledge_Base:Unable_to_mount_root_fs).
 
-12. Change `root=/dev/hda1` to `root=/dev/hda2`. A new kernel panic message. check [here](./kernel-panic-2)
+12. In my_config/simple_full_system.py, boot_options, change `root=/dev/hda1` to `root=/dev/hda2`. 
+A new kernel panic message. check [here](./kernel-panic-2).
 
+### Create a disk image
+This part is obtained from this [post](http://www.lowepower.com/jason/setting-up-gem5-full-system.html)
+writen by Jason Lowe-Power.
 
-**Kernel Config:**
+Dependencies: qemu
 
-1. It looks like gem5 wants Retpoline enabled
+1. Create an empty disk image
+```
+qemu-img create ubuntu-test.img 8G
+```
+
+2. Boot the installation image and install it on the disk image.
+```
+qemu-system-x86_64 -hda \<path to ubuntu-test.img\> -cdrom \<path to installation image\> -m 1024 -enable-kvm -boot d
+```
+
+3. Boot from disk and add data, programs, ...
+```
+qemu-system-x86_64 -hda \<path to ubuntu-test.img\> -m 1024 -enable-kvm
+```
+
+4. Setup init script:
+* build m5 
+```
+cd util/m5
+make -f Makefile.x86
+```
+* mount image file system (check out mounting image file system)
+* copy m5 binary to /sbin
+* create a link from `/sbin/gem5` to `/sbin/m5`
+```
+ln -s /sbin/m5 /sbin/gem5
+```
+* create a file at `/lib/systemd/system/gem5.service`
+(file content is [here](./init_script/gem5.service))
+* create a file at `/sbin/initgem5`
+(file content is [here](./init_script/initgem5))
+* boot the image and enable the gem5.service
+```
+systemctl enable gem5.service
+```
+
+### Mounting image file system
+For copying files from host to guest file-system, you can mount the image.
+(Read this [post](https://www.cnx-software.com/2011/09/29/how-to-transfer-files-between-host-and-qemu/).)
+
+1. First find the partition's offset with command below
+```
+fdisk -lu ubuntu-test.img
+```
+
+2. Mount the partition
+(4096 start of file system offset, 512 block size)
+```
+sudo mount -o loop,offset=$[4096*512] ubuntu-test.img mnt/
+```
+
+3. Copy files and ...
 

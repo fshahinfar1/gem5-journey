@@ -1,0 +1,14 @@
+[Unit]
+Description=gem5 init script
+Documentation=http://gem5.org
+After=getty.target
+
+[Service]
+Type=idle
+ExecStart=/sbin/gem5init
+StandardOutput=tty
+StandardInput=tty-force
+StandardError=tty
+
+[Install]
+WantedBy=default.target
