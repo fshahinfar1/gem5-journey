@@ -95,6 +95,8 @@ And this [post](https://wiki.gentoo.org/wiki/Knowledge_Base:Unable_to_mount_root
 12. In my_config/simple_full_system.py, boot_options, change `root=/dev/hda1` to `root=/dev/hda2`. 
 A new kernel panic message. check [here](./kernel-panic-2).
 
+13. Stuck, but this [repository](https://github.com/cirosantilli/linux-kernel-module-cheat/tree/6aa2f783a8a18589ae66e85f781f86b08abb3397#gem5-system-parameters) looks promising.
+
 ## Useful tips
 ### Create a disk image
 This part is obtained from this [post](http://www.lowepower.com/jason/setting-up-gem5-full-system.html)
