@@ -194,5 +194,14 @@ to a script can be send to guest.
 2. guest can use `m5` binary for accessing the file using command:
 `m5 readfile`
 
+For automating the process, we are going to create a systemd service.
+>this part has been explained above, when creating a new ubuntu image
+
+1. Place this [file](./init_script/gem5.service) in `/lib/systemd/system/gem5.service`
+2. Place this [script](./init_scrip/gem5init) in `/sbin/gem5init`
+3. Run command `systemctl enable gem5`.
+
 * Note: take a look at [here](https://stackoverflow.com/questions/49516399/how-to-use-m5-readfile-and-m5-execfile-in-gem5/49538051).
+
+* Note: Implementation of this part of gem5 is at `<gem5 root>/util/m5/m5.c`.
 
