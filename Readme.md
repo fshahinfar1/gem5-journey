@@ -205,3 +205,5 @@ For automating the process, we are going to create a systemd service.
 
 * Note: Implementation of this part of gem5 is at `<gem5 root>/util/m5/m5.c`.
 
+* Note: Check [here](https://www.freedesktop.org/software/systemd/man/systemd.service.html) for understanding about `gem5.service`.
+
