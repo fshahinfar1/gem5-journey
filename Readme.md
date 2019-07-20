@@ -157,3 +157,28 @@ sudo mount -o loop,offset=$[4096*512] ubuntu-test.img mnt/
 
 3. Copy files and ...
 
+### Config image for auto login
+
+Check the post [here](https://unix.stackexchange.com/questions/297252/how-do-you-configure-autologin-in-debian-jessie).
+
+1. Use command below
+```
+systemctl edit serial-getty@ttyS0
+```
+
+2. Add lines below
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root --keep-baud 115200,38400,9600 %I $TERM
+```
+
+### How does gem5 pass scripts to guest
+
+1. Using `system.readfile` attribute defined at `System.py` a pointer 
+to a script can be send to guest.
+
+2. guest can use `m5` binary for accessing the file using command:
+`m5 readfile`
+
+* Note: take a look at [here](https://stackoverflow.com/questions/49516399/how-to-use-m5-readfile-and-m5-execfile-in-gem5/49538051).
