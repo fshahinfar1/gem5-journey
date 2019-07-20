@@ -37,10 +37,9 @@ Run gem5 simulator:
 telnet 127.0.0.1 <port>
 ```
 
-### Run a custom kernel and image [Not yet achieved]
+### Run a custom kernel and image
 
-These steps has been taken for running a full system simulation but
-I haven't yet got there.
+These steps has been taken for running a full system simulation.
 
 1. Read the blog post [here](http://www.lowepower.com/jason/setting-up-gem5-full-system.html).
 
@@ -97,6 +96,8 @@ A new kernel panic message. check [here](./kernel-panic-2).
 
 13. Stuck, but this [repository](https://github.com/cirosantilli/linux-kernel-module-cheat/tree/6aa2f783a8a18589ae66e85f781f86b08abb3397#gem5-system-parameters) looks promising.
 
+14. This [repository](https://github.com/tukl-msd/gem5.TnT) has some tips an tricks.
+
 ## Useful tips
 ### Create a disk image
 This part is obtained from this [post](http://www.lowepower.com/jason/setting-up-gem5-full-system.html)
@@ -140,6 +141,8 @@ ln -s /sbin/m5 /sbin/gem5
 systemctl enable gem5.service
 ```
 
+---
+
 ### Mounting image file system
 For copying files from host to guest file-system, you can mount the image.
 (Read this [post](https://www.cnx-software.com/2011/09/29/how-to-transfer-files-between-host-and-qemu/).)
@@ -157,7 +160,10 @@ sudo mount -o loop,offset=$[4096*512] ubuntu-test.img mnt/
 
 3. Copy files and ...
 
-### Config image for auto login
+---
+
+### Config Ubuntu 18.04 for auto login
+In the configuration the gem5 is connected to **ttyS0**.
 
 Check the post [here](https://unix.stackexchange.com/questions/297252/how-do-you-configure-autologin-in-debian-jessie).
 
@@ -173,6 +179,13 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin root --keep-baud 115200,38400,9600 %I $TERM
 ```
 
+3. Check edited config
+```
+systemctl cat serial-getty@ttyS0 | grep Exec
+```
+
+---
+
 ### How does gem5 pass scripts to guest
 
 1. Using `system.readfile` attribute defined at `System.py` a pointer 
@@ -182,3 +195,4 @@ to a script can be send to guest.
 `m5 readfile`
 
 * Note: take a look at [here](https://stackoverflow.com/questions/49516399/how-to-use-m5-readfile-and-m5-execfile-in-gem5/49538051).
+
