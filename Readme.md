@@ -7,7 +7,7 @@
 scons build/ARM/gem5.opt -j4
 ```
 
-2. If protobuf_min_version error then edit SConstruct in the root of gem5 directory.
+2. If protobuf\_min\_version error then edit SConstruct in the root of gem5 directory.
 At line 390, append to the list '-Wno-error=undef'.
 
 ## Running a full system simulation
